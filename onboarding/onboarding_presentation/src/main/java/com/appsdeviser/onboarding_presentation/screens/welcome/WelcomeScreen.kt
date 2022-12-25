@@ -1,4 +1,4 @@
-package com.appsdeviser.onboarding_presentation
+package com.appsdeviser.onboarding_presentation.screens.welcome
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.appsdeviser.core.navigation.Route
 import com.appsdeviser.core.utils.UiEvent
 import com.appsdeviser.core_ui.LocalSpacing
+import com.appsdeviser.onboarding_presentation.R
 import com.appsdeviser.onboarding_presentation.component.ActionButton
 
 @Composable
@@ -34,7 +35,7 @@ fun WelcomeScreen(
         Spacer(modifier = Modifier.height(spacing.spaceMedium))
         ActionButton(
             text = stringResource(id = R.string.lets_go),
-            onClick = { onNavigate(UiEvent.Navigate(Route.AGE)) },
+            onClick = { onNavigate(UiEvent.Navigate(Route.GENDER)) },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }
