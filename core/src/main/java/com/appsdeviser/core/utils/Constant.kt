@@ -11,5 +11,8 @@ object Constant {
     const val ACTIVITY_MEDIUM = "medium"
     const val ACTIVITY_HIGH = "high"
 
-
+    // Const Default value
+    const val DEFAULT_AGE = "20"
+    const val DEFAULT_HEIGHT = "172"
+    const val DEFAULT_WEIGHT = "80"
 }

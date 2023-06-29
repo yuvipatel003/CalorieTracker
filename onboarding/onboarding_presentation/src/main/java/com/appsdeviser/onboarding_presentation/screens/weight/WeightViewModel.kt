@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.appsdeviser.core.domain.preferences.Preferences
 import com.appsdeviser.core.navigation.Route
+import com.appsdeviser.core.utils.Constant
 import com.appsdeviser.core.utils.UiEvent
 import com.appsdeviser.core.utils.UiText
 import com.appsdeviser.onboarding_presentation.R
@@ -20,7 +21,7 @@ import javax.inject.Inject
 class WeightViewModel @Inject constructor(
     private val preferences: Preferences
 ) : ViewModel() {
-    var weight by mutableStateOf("80")
+    var weight by mutableStateOf(Constant.DEFAULT_WEIGHT)
         private set
 
     private val _uiEvent = Channel<UiEvent>()

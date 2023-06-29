@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.appsdeviser.core.domain.preferences.Preferences
 import com.appsdeviser.core.domain.use_case.FilterOutDigits
 import com.appsdeviser.core.navigation.Route
+import com.appsdeviser.core.utils.Constant
 import com.appsdeviser.core.utils.UiEvent
 import com.appsdeviser.core.utils.UiText
 import com.appsdeviser.onboarding_presentation.R
@@ -22,7 +23,7 @@ class AgeViewModel @Inject constructor(
     private val preferences: Preferences,
     private val filterOutDigits: FilterOutDigits
 ) : ViewModel() {
-    var age by mutableStateOf("20")
+    var age by mutableStateOf(Constant.DEFAULT_AGE)
         private set
 
     private val _uiEvent = Channel<UiEvent>()
