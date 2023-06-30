@@ -15,4 +15,10 @@ object Constant {
     const val DEFAULT_AGE = "20"
     const val DEFAULT_HEIGHT = "172"
     const val DEFAULT_WEIGHT = "80"
+
+    // MealType
+    const val MEAL_TYPE_BREAKFAST = "breakfast"
+    const val MEAL_TYPE_LUNCH = "lunch"
+    const val MEAL_TYPE_DINNER = "dinner"
+    const val MEAL_TYPE_SNACK = "snack"
 }
