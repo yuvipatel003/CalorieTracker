@@ -10,24 +10,24 @@ jobs:
   Patch:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: '0'
-    - name: Minor version for each merge
-      id: taggerDryRun
-      uses: anothrNick/github-tag-action@1.36.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
 
-    - name: echo new tag
-      run: |
-        echo "The next tag version will be: ${{ steps.taggerDryRun.outputs.new_tag }}"
-    - name: echo tag
-      run: |
-        echo "The current tag is: ${{ steps.taggerDryRun.outputs.tag }}"
-    - name: echo part
-      run: |
-        echo "The version increment was: ${{ steps.taggerDryRun.outputs.part }}"
+      - name: Get next version
+        uses: reecetech/version-increment@2023.4.1
+        id: version
+        with:
+          scheme: semver
+          increment: patch
+
+      - name: Build image
+        uses: docker/build-push-action@v2
+        with:
+          push: false
+          tags: "CalorieTracker${{ steps.version.outputs.version }}"
+          context: .
 #   lint:
 #     runs-on: ubuntu-latest
 #     steps:
@@ -144,5 +144,5 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v2
         with:
-          name: "CalorieTracker${{steps.taggerDryRun.outputs.part}}"
+          name: "CalorieTracker${{ steps.version.outputs.version }}"
           path: app/build/outputs/apk/debug/app-debug.apk
