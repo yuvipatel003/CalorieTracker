@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
           fetch-depth: '0'
 
@@ -144,5 +144,5 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v2
         with:
-          name: "CalorieTracker${{ steps.version.outputs.version }}"
+          name: "calorie-tracker-${{ steps.version.outputs.version }}"
           path: app/build/outputs/apk/debug/app-debug.apk
