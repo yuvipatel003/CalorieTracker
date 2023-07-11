@@ -26,7 +26,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: false
-          tags: "CalorieTracker${{ steps.version.outputs.version }}"
+          tags: "calorie-tracker-${{ steps.version.outputs.version }}"
           context: .
 #   lint:
 #     runs-on: ubuntu-latest
