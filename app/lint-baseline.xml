@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint Electric Eel | 2022.1.1 Patch 1">
+
+    <issue
+        id="JcenterRepositoryObsolete"
+        message="JCenter Maven repository is no longer receiving updates: newer library versions may be available elsewhere">
+        <location
+            file="settings.gradle"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 26 (current min is 23): `java.time.LocalDate#of`">
+        <location
+            file="src/main/java/com/appsdeviser/tracker_data/mapper/TrackedFoodMapper.kt"
+            line="17"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 26 (current min is 23): `java.time.LocalDate#getDayOfMonth`">
+        <location
+            file="src/main/java/com/appsdeviser/tracker_data/mapper/TrackedFoodMapper.kt"
+            line="32"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 26 (current min is 23): `java.time.LocalDate#getMonthValue`">
+        <location
+            file="src/main/java/com/appsdeviser/tracker_data/mapper/TrackedFoodMapper.kt"
+            line="33"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 26 (current min is 23): `java.time.LocalDate#getYear`">
+        <location
+            file="src/main/java/com/appsdeviser/tracker_data/mapper/TrackedFoodMapper.kt"
+            line="34"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 26 (current min is 23): `java.time.LocalDate#getDayOfMonth`">
+        <location
+            file="src/main/java/com/appsdeviser/tracker_data/repository/TrackerRepositoryImpl.kt"
+            line="51"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 26 (current min is 23): `java.time.LocalDate#getMonthValue`">
+        <location
+            file="src/main/java/com/appsdeviser/tracker_data/repository/TrackerRepositoryImpl.kt"
+            line="52"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 26 (current min is 23): `java.time.LocalDate#getYear`">
+        <location
+            file="src/main/java/com/appsdeviser/tracker_data/repository/TrackerRepositoryImpl.kt"
+            line="53"/>
+    </issue>
+
+    <issue
+        id="RedundantLabel"
+        message="Redundant label can be removed">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="33"/>
+    </issue>
+
+    <issue
+        id="PluralsCandidate"
+        message="Formatting %d followed by words (&quot;kcal&quot;): This should probably be a plural rather than a string">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="27"/>
+    </issue>
+
+    <issue
+        id="PluralsCandidate"
+        message="Formatting %d followed by words (&quot;kcal&quot;): This should probably be a plural rather than a string">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="41"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is always >= 26">
+        <location
+            file="src/main/java/com/appsdeviser/calorietracker/service/CalorieTrackerFirebaseMessagingService.kt"
+            line="49"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is always >= 21">
+        <location
+            file="src/main/res/values-night/themes.xml"
+            line="10"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is always >= 21">
+        <location
+            file="src/main/res/values-night/themes.xml"
+            line="10"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is always >= 21">
+        <location
+            file="src/main/res/values/themes.xml"
+            line="10"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is always >= 21">
+        <location
+            file="src/main/res/values/themes.xml"
+            line="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.baseline_track_changes_24` appears to be unused">
+        <location
+            file="src/main/res/drawable/baseline_track_changes_24.xml"
+            line="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.purple_200` appears to be unused">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="3"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.purple_500` appears to be unused">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="4"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.purple_700` appears to be unused">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.teal_200` appears to be unused">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="6"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.teal_700` appears to be unused">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="7"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.error_unknown` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="4"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.kcal` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="19"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.carbs` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="20"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.protein` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="21"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.fat` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="22"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.previous_day` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="23"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.next_day` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="24"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.yesterday` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="25"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.tomorrow` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="26"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.nutrient_info` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="27"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.amount_info` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="28"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.grams` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="29"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.extend` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="30"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.collapse` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="31"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.breakfast` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="32"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.lunch` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="33"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.dinner` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="34"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.snacks` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="35"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.add_meal` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="36"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.add` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="37"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.search` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="38"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.today` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="39"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.recent` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="40"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.kcal_per_100g` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="41"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.track` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="42"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.error_something_went_wrong` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="43"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.no_results` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="44"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.your_goal` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="61"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.delete` appears to be unused">
+        <location
+            file="../core/src/main/res/values/strings.xml"
+            line="62"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.Theme_CalorieTrackerPrep_AppBarOverlay` appears to be unused">
+        <location
+            file="src/main/res/values/themes.xml"
+            line="19"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.Theme_CalorieTrackerPrep_PopupOverlay` appears to be unused">
+        <location
+            file="src/main/res/values/themes.xml"
+            line="21"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="38"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive icon is missing a monochrome tag">
+        <location
+            file="src/main/res/mipmap-anydpi-v26/ic_calorie_tracker.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive roundIcon is missing a monochrome tag">
+        <location
+            file="src/main/res/mipmap-anydpi-v26/ic_calorie_tracker_round.xml"
+            line="2"/>
+    </issue>
+
+</issues>
