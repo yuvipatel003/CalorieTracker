@@ -25,7 +25,7 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v2
         with:
-          push: false
+          push: true
           tags: "calorietracker:${{ steps.version.outputs.version }}"
           context: .
 #   lint:
@@ -144,8 +144,5 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v2
         with:
-          tags: "calorie-tracker:${{ steps.version.outputs.version }}"
-          run: echo "calorie-tracker:${{ steps.version.outputs.version }}"
-          context: .
           name: "calorie-tracker:${{ steps.version.outputs.version }}"
           path: app/build/outputs/apk/debug/app-debug.apk
