@@ -7,6 +7,29 @@ on:
   workflow_dispatch:
 
 jobs:
+  Patch:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
+    - name: Minor version for each merge
+      id: taggerDryRun
+      uses: anothrNick/github-tag-action@1.36.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: true
+        DRY_RUN: true
+
+    - name: echo new tag
+      run: |
+        echo "The next tag version will be: ${{ steps.taggerDryRun.outputs.new_part }}"
+    - name: echo tag
+      run: |
+        echo "The current tag is: ${{ steps.taggerDryRun.outputs.tag }}"
+    - name: echo part
+      run: |
+        echo "The version increment was: ${{ steps.taggerDryRun.outputs.part }}"
 #   lint:
 #     runs-on: ubuntu-latest
 #     steps:
@@ -120,33 +143,8 @@ jobs:
       - name: Build debug APK
         run: ./gradlew assembleDebug --stacktrace
 
-      - name: Bumping Major Index
-        id: bump_version_major
-        if: contains(github.event.pull_request.title, 'major')
-        uses: christian-draeger/increment-semantic-version@1.0.2
-        with:
-          current-version: ${{ steps.releaseVersion.outputs.Release_tag }}
-          version-fragment: 'major'
-                    
-      - name: Bumping Minor Index
-        id: bump_version_minor
-        if: contains(github.event.pull_request.title, 'minor')
-        uses: christian-draeger/increment-semantic-version@1.0.2
-        with:
-          current-version: ${{ steps.releaseVersion.outputs.Release_tag }}
-          version-fragment: 'feature'
-          
-      - name: Bumping Patch Index 
-        id: bump_version_patch
-        if: contains(github.event.pull_request.title, 'patch')
-        uses: christian-draeger/increment-semantic-version@1.0.2
-        with:
-          current-version: ${{ steps.releaseVersion.outputs.Release_tag }}
-          version-fragment: 'bug'
-
-
       - name: Upload debug APK
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ steps.bump_version_minor.outputs.next-version }}","target_commitish":"master","name":"${{ steps.bump_version_minor.outputs.next-version }}".apk
+          name: "CalorieTracker${{steps.taggerDryRun.outputs.part}}"
           path: app/build/outputs/apk/debug/app-debug.apk
