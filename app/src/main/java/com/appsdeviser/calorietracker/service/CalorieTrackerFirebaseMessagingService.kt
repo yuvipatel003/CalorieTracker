@@ -34,11 +34,11 @@ class CalorieTrackerFirebaseMessagingService : FirebaseMessagingService() {
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
-        Log.d("Message", message.data.toString())
+        //Log.d("Message", message.data.toString())
         val notification = NotificationCompat.Builder(this, channel_id)
             .setContentTitle(message.data["title"])
             .setContentText(message.data["message"])
-            .setSmallIcon(R.drawable.ic_100tb)
+            .setSmallIcon(R.mipmap.ic_calorie_tracker)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
             .build()
@@ -48,7 +48,7 @@ class CalorieTrackerFirebaseMessagingService : FirebaseMessagingService() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createNotificationChannel(notificationManager: NotificationManager){
-        val channelName = "com.appsdeviser.calorietracker.notification"
+        val channelName = getString(R.string.default_notification_channel_id)
         val notificationChannel = NotificationChannel(channel_id, channelName, IMPORTANCE_HIGH).apply {
             description = "description"
             enableLights(true)
@@ -58,6 +58,6 @@ class CalorieTrackerFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onNewToken(token: String) {
         super.onNewToken(token)
-        Log.d("TAG TOKEN", token)
+        //Log.d("TAG TOKEN", token)
     }
 }
