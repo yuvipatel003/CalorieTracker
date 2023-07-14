@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: First Run
+      - name: "${{ vars.APP_NAME }}${{ steps.version.outputs.version }}"
         run: echo "${{ vars.APP_NAME }}${{ steps.version.outputs.version }}"
         
   lint:
