@@ -34,8 +34,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: "${{ vars.APP_NAME }}${{ steps.version.outputs.version }}"
-        run: echo "${{ vars.APP_NAME }}${{ steps.version.outputs.version }}"
+        with:
+          name: "${{ vars.APP_NAME }} ${{ steps.version.outputs.version }}"
+          path: app/build/outputs/apk/debug/app-debug.apk
         
   lint:
     runs-on: ubuntu-latest
