@@ -17,7 +17,7 @@ jobs:
           fetch-depth: '0'
 
       - name: Set patch version
-        if: ${{ env.CurrentDevVersion == null || env.CurrentDevVersion != ${{vars.CURRENT_DEV_VERSION}}}}
+        if: ${{ env.CurrentDevVersion == null || env.CurrentDevVersion != vars.CURRENT_DEV_VERSION}}
         run: echo "DevVersion=${{vars.CURRENT_DEV_VERSION}}" >> $GITHUB_ENV
              echo "PatchVersion=null" >> $GITHUB_ENV
         
