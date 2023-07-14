@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: ${{repo.APP_NAME}}
-        run: echo 
+      - name: First Run
+        run: echo "$APP_NAME $CURRENTVERSION"
