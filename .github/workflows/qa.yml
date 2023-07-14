@@ -127,8 +127,12 @@ jobs:
       - name: Build debug APK
         run: ./gradlew assembleDebug --stacktrace
 
+      - name: Rename file 
+        run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/${{vars.APP_NAME}}${{vars.CURRENT_DEV_VERSION}}.${{github.run_number}}.apk
+        
       - name: Upload debug APK
         uses: actions/upload-artifact@v2
         with:
           name: ${{vars.APP_NAME}}${{vars.CURRENT_DEV_VERSION}}.${{github.run_number}}.apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+#       name: xyz.apk
+          path: app/build/outputs/apk/debug/${{vars.APP_NAME}}${{vars.CURRENT_DEV_VERSION}}.${{github.run_number}}.apk
