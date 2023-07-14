@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: First Run
-        run: echo "	${{ env.APP_NAME }}"
+        run: echo "	${{ vars.APP_NAME }}"
