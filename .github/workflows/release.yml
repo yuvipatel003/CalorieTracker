@@ -11,8 +11,8 @@ jobs:
   buildVersion:
     runs-on: ubuntu-latest
     steps:
-       - name: "${{ vars.APP_NAME }}${{ vars.CURRENT_PRODUCTION_VERSION }}"
-         run: echo "${{ vars.APP_NAME }}${{ vars.CURRENT_PRODUCTION_VERSION }}"
+       - name: "${{ vars.APP_NAME }}${{ vars.CURRENT_PRODUCTION_VERSION }}.${{ github.run_number}}"
+         run: echo "${{ vars.APP_NAME }}${{ vars.CURRENT_PRODUCTION_VERSION }}.${{ github.run_number}}"
         
   lint:
     runs-on: ubuntu-latest
@@ -130,5 +130,5 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v2
         with:
-          name: "${{ vars.APP_NAME }}${{ vars.CURRENT_PRODUCTION_VERSION }}"
+          name: "${{ vars.APP_NAME }}${{ vars.CURRENT_PRODUCTION_VERSION }}.${{ github.run_number}}"
           path: app/build/outputs/apk/debug/app-debug.apk
