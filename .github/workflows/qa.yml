@@ -23,19 +23,19 @@ jobs:
           scheme: semver
           increment: patch
 
-      - name: Build image
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: "${{ steps.version.outputs.v-version }}"
-          context: .
+#       - name: Build image
+#         uses: docker/build-push-action@v2
+#         with:
+#           push: true
+#           tags: "${{ steps.version.outputs.v-version }}"
+#           context: .
           
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: First Run
-        run: echo "${{ vars.APP_NAME }}${{ vars.APP_NAME }}${{ steps.version.outputs.version }}"
+        run: echo "${{ vars.APP_NAME }}${{ steps.version.outputs.v-version }}"
         
   lint:
     runs-on: ubuntu-latest
