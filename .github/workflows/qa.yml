@@ -16,12 +16,18 @@ jobs:
         with:
           fetch-depth: '0'
 
+      - name: Set patch version
+        if: ${{ env.CurrentDevVersion == null || env.CurrentDevVersion != ${{vars.CURRENT_DEV_VERSION}}}}
+        run: echo "DevVersion=${{vars.CURRENT_DEV_VERSION}}" >> $GITHUB_ENV
+             echo "PatchVersion=null" >> $GITHUB_ENV
+        
+      - name: Set patch version
+        if: ${{ env.Version == null }}
+        run: echo "PatchVersion=1" >> $GITHUB_ENV
+        
       - name: Get next version
-        uses: reecetech/version-increment@2023.4.1
-        id: version
-        with:
-          scheme: semver
-          increment: patch
+        run: echo "CurrentPatchVersion=${{ env.PatchVersion }}"
+             echo "Next version = ${{vars.CURRENT_DEV_VERSION }}${{ env.PatchVersion++ }} "
 
       - name: Build image
         uses: docker/build-push-action@v2
@@ -152,5 +158,5 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v2
         with:
-          name: "${{ vars.APP_NAME }} ${{ vars.CURRENT_DEV_VERSION }}"
+          name: "${{ vars.APP_NAME }} ${{ vars.CURRENT_DEV_VERSION }}.${{ env.Version++ }} "
           path: app/build/outputs/apk/debug/app-debug.apk
