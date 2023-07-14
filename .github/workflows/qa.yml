@@ -2,26 +2,26 @@ name: Debug Build
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "develop" ]
 
   workflow_dispatch:
 
 jobs:
         
-  Patch:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
+#   Patch:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+#         with:
+#           fetch-depth: '0'
 
-      - name: Get next version
-        uses: reecetech/version-increment@2023.4.1
-        id: version
-        with:
-          scheme: semver
-          increment: patch
+#       - name: Get next version
+#         uses: reecetech/version-increment@2023.4.1
+#         id: version
+#         with:
+#           scheme: semver
+#           increment: patch
 
 #       - name: Build image
 #         uses: docker/build-push-action@v2
@@ -30,11 +30,11 @@ jobs:
 #           tags: "${{ steps.version.outputs.v-version }}"
 #           context: .
           
-  build:
-    runs-on: ubuntu-latest
-    steps:
-       - name: "${{ vars.APP_NAME }}${{ vars.CURRENT_DEV_VERSION }}${{ steps.version.outputs.v-version }}"
-         run: echo "${{ vars.APP_NAME }}${{ vars.CURRENT_DEV_VERSION }}${{ steps.version.outputs.v-version }}"
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#        - name: "${{ vars.APP_NAME }} ${{ vars.CURRENT_DEV_VERSION }}"
+#          run: echo "${{ vars.APP_NAME }} ${{ vars.CURRENT_DEV_VERSION }}"
         
   lint:
     runs-on: ubuntu-latest
@@ -60,25 +60,25 @@ jobs:
          name: lint_report.html
          path: app/build/reports/lint-results-debug.html
 
-  unit-test:
-   needs: [lint]
-   runs-on: ubuntu-latest
-   steps:
-          # Just Echo Message to run avoid Git Actions
-      - name: Instrumented Test Started
-        run: echo Instrumented Test Started
+#   unit-test:
+#    needs: [lint]
+#    runs-on: ubuntu-latest
+#    steps:
+#           # Just Echo Message to run avoid Git Actions
+#       - name: Instrumented Test Started
+#         run: echo Instrumented Test Started
 
-      - name: Checkout branch code
-        uses: actions/checkout@v3
+#       - name: Checkout branch code
+#         uses: actions/checkout@v3
 
-      - name: Run Tests
-        run: ./gradlew test
+#       - name: Run Tests
+#         run: ./gradlew test
 
-      - name: Upload test report
-        uses: actions/upload-artifact@v3
-        with:
-         name: unit_test_report.html
-         path: app/build/reports/tests/testDebugUnitTest/
+#       - name: Upload test report
+#         uses: actions/upload-artifact@v3
+#         with:
+#          name: unit_test_report.html
+#          path: app/build/reports/tests/testDebugUnitTest/
 
 #   instrumented-test:
 #     needs: [unit-test]
@@ -152,5 +152,5 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v2
         with:
-          name: "${{ vars.APP_NAME }} ${{ steps.version.outputs.version }}"
+          name: "${{ vars.APP_NAME }} ${{ vars.CURRENT_DEV_VERSION }}"
           path: app/build/outputs/apk/debug/app-debug.apk
