@@ -8,27 +8,27 @@ on:
 
 jobs:
         
-#   Patch:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
-#         with:
-#           fetch-depth: '0'
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
 
-#       - name: Get next version
-#         uses: reecetech/version-increment@2023.4.1
-#         id: version
-#         with:
-#           scheme: semver
-#           increment: patch
+      - name: Get next version
+        uses: reecetech/version-increment@2023.4.1
+        id: version
+        with:
+          scheme: semver
+          increment: patch
 
-#       - name: Build image
-#         uses: docker/build-push-action@v2
-#         with:
-#           push: true
-#           tags: "${{ steps.version.outputs.v-version }}"
-#           context: .
+      - name: Build image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: "${{ vars.APP_TAG_NAME }}:${{ steps.version.outputs.version }}"
+          context: .
           
 #   build:
 #     runs-on: ubuntu-latest
