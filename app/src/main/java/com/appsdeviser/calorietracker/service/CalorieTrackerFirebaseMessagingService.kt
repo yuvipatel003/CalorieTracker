@@ -34,7 +34,6 @@ class CalorieTrackerFirebaseMessagingService : FirebaseMessagingService() {
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
-        //Log.d("Message", message.data.toString())
         val notification = NotificationCompat.Builder(this, channel_id)
             .setContentTitle(message.data["title"])
             .setContentText(message.data["message"])
