@@ -14,7 +14,7 @@ jobs:
        - name: "${{ vars.APP_NAME }}${{ vars.CURRENT_DEV_VERSION }}.${{ github.run_number}}"
          run: echo "${{ vars.APP_NAME }}${{ vars.CURRENT_DEV_VERSION }}.${{ github.run_number}}"
         
-   lint:
+  lint:
      needs: [buildVersion]
      runs-on: ubuntu-latest
      steps:
