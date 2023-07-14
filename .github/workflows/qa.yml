@@ -18,12 +18,14 @@ jobs:
 
       - name: Set patch version
         if: ${{ env.CurrentDevVersion == null || env.CurrentDevVersion != vars.CURRENT_DEV_VERSION}}
-        run: echo "DevVersion=${{vars.CURRENT_DEV_VERSION}}" >> $GITHUB_ENV
-             echo "PatchVersion=null" >> $GITHUB_ENV
+        run: |     
+            DefaultPatchVersion=1
+            echo "DevVersion=${{vars.CURRENT_DEV_VERSION}}" >> $GITHUB_ENV
+            echo "PatchVersion=null" >> $GITHUB_ENV
         
       - name: Set patch version
         if: ${{ env.Version == null }}
-        run: echo "PatchVersion=1" >> $GITHUB_ENV
+        run: echo "PatchVersion=$DefaultPatchVersion" >> $GITHUB_ENV
         
       - name: Get next version
         run: echo "CurrentPatchVersion=${{ env.PatchVersion }}"
