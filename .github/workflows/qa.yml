@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: First Run
-        run: echo "$APP_NAME $CURRENTVERSION"
+        run: echo "	${{ env.APP_NAME }}"
