@@ -78,4 +78,14 @@ class DefaultPreferences(
             fatRatio = sharedPref.getFloat(Preferences.KEY_FAT_RATIO, -1f)
         )
     }
+
+    override fun saveShouldShowOnBoarding(shouldShow: Boolean) {
+        sharedPref.edit()
+            .putBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, shouldShow)
+            .apply()
+    }
+
+    override fun loadShouldShowOnBoarding(): Boolean {
+        return sharedPref.getBoolean(Preferences.KEY_AGE, true)
+    }
 }
