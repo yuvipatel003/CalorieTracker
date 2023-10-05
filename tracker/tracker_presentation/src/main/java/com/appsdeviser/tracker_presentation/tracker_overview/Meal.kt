@@ -1,8 +1,9 @@
-package com.appsdeviser.tracker_presentation
+package com.appsdeviser.tracker_presentation.tracker_overview
 
 import androidx.annotation.DrawableRes
 import com.appsdeviser.core.utils.UiText
 import com.appsdeviser.tracker_domain.model.MealType
+import com.appsdeviser.tracker_presentation.R
 
 data class Meal(
     val name: UiText,
