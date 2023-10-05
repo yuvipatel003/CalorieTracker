@@ -20,6 +20,10 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        ndk {
+            abiFilters += listOf("armeabi-v7a","arm64-v8a","x86","x86_64")
+        }
     }
 
     buildTypes {
@@ -45,6 +49,9 @@ android {
         exclude("META-INF/LGPL2.1")
         exclude("**/attach_hotspot_windows.dll")
         exclude("META-INF/licenses/ASM")
+        excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        merges += "META-INF/LICENSE.md"
+        merges += "META-INF/LICENSE-notice.md"
     }
 
     lint {

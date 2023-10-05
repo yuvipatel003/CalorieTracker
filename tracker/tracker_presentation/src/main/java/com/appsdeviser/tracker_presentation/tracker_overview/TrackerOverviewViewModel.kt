@@ -1,4 +1,4 @@
-package com.appsdeviser.tracker_presentation
+package com.appsdeviser.tracker_presentation.tracker_overview
 
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
