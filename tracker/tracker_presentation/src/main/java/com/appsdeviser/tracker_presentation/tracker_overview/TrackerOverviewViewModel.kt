@@ -30,6 +30,7 @@ class TrackerOverviewViewModel @Inject constructor(
     private var getFoodForDateJob: Job? = null
     init {
         preferences.saveShouldShowOnBoarding(false)
+        refreshFoods()
     }
 
     fun onEvent(event: TrackerOverviewEvent){
