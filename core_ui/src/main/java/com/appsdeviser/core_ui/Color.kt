@@ -1,4 +1,4 @@
-package com.appsdeviser.calorietracker.ui.theme
+package com.appsdeviser.core_ui
 
 import androidx.compose.ui.graphics.Color
 

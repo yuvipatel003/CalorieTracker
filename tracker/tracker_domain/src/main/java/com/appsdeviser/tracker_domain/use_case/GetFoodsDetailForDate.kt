@@ -8,7 +8,7 @@ import java.time.LocalDate
 class GetFoodsDetailForDate(
     private val repository: TrackerRepository
 ) {
-    suspend operator fun invoke(
+    operator fun invoke(
         date: LocalDate
     ): Flow<List<TrackedFood>> {
         return repository.getFoodsDetailForDate(
