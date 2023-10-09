@@ -86,6 +86,6 @@ class DefaultPreferences(
     }
 
     override fun loadShouldShowOnBoarding(): Boolean {
-        return sharedPref.getBoolean(Preferences.KEY_AGE, true)
+        return sharedPref.getBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, true)
     }
 }

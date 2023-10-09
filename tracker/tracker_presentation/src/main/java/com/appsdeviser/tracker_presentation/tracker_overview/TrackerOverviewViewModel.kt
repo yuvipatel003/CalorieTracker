@@ -1,6 +1,7 @@
 package com.appsdeviser.tracker_presentation.tracker_overview
 
 import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.appsdeviser.core.domain.preferences.Preferences
@@ -29,44 +30,44 @@ class TrackerOverviewViewModel @Inject constructor(
 
     private var getFoodForDateJob: Job? = null
     init {
-        preferences.saveShouldShowOnBoarding(false)
         refreshFoods()
+        preferences.saveShouldShowOnBoarding(false)
     }
 
     fun onEvent(event: TrackerOverviewEvent){
         when(event){
-            is TrackerOverviewEvent.onAddFoodClick -> {
+            is TrackerOverviewEvent.OnAddFoodClick -> {
                 viewModelScope.launch {
                     _uiEvent.send(
                         UiEvent.Navigate(
                             route = Route.SEARCH
-                                    + "/${event.meal.name}"
-                                    +"/${state.date.dayOfMonth}"
-                                    +"/${state.date.month}"
-                                    +"/${state.date.year}"
+                                    + "/${event.meal.mealType.name}"
+                                    + "/${state.date.dayOfMonth}"
+                                    + "/${state.date.monthValue}"
+                                    + "/${state.date.year}"
                         )
                     )
                 }
             }
-            is TrackerOverviewEvent.onDeleteTrackedFood -> {
+            is TrackerOverviewEvent.OnDeleteTrackedFood -> {
                 viewModelScope.launch {
                     trackerUseCases.trackedFoodDeleteUseCase(food = event.trackedFood)
                     refreshFoods()
                 }
             }
-            TrackerOverviewEvent.onNextDayClick -> {
+            TrackerOverviewEvent.OnNextDayClick -> {
                 state = state.copy(
                     date = state.date.plusDays(1)
                 )
                 refreshFoods()
             }
-            TrackerOverviewEvent.onPreviousDayClick -> {
+            TrackerOverviewEvent.OnPreviousDayClick -> {
                 state = state.copy(
                     date = state.date.minusDays(1)
                 )
                 refreshFoods()
             }
-            is TrackerOverviewEvent.onToggleMealClick -> {
+            is TrackerOverviewEvent.OnToggleMealClick -> {
                 state = state.copy(
                     meals = state.meals.map {
                         if(it.name == event.meal.name){
