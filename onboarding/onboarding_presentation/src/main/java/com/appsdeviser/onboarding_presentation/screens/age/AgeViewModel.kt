@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.appsdeviser.core.domain.preferences.Preferences
 import com.appsdeviser.core.domain.use_case.FilterOutDigits
-import com.appsdeviser.core.navigation.Route
 import com.appsdeviser.core.utils.Constant
 import com.appsdeviser.core.utils.UiEvent
 import com.appsdeviser.core.utils.UiText
@@ -46,7 +45,7 @@ class AgeViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveAge(ageNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.HEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

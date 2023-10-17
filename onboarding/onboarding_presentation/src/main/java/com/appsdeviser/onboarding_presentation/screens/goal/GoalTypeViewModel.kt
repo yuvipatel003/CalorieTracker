@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.appsdeviser.core.domain.model.GoalType
 import com.appsdeviser.core.domain.preferences.Preferences
-import com.appsdeviser.core.navigation.Route
 import com.appsdeviser.core.utils.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
@@ -32,7 +31,7 @@ class GoalTypeViewModel @Inject constructor(
     fun onNextClick(){
         viewModelScope.launch {
             preferences.saveGoalType(selectedGoalType)
-            _uiEvent.send(UiEvent.Navigate(Route.NUTRIENT_GOAL))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

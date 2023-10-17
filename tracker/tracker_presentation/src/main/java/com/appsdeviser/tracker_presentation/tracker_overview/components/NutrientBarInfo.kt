@@ -43,7 +43,7 @@ fun NutrientBarInfo(
         Animatable(0f)
     }
 
-    LaunchedEffect(key1 = angleRatio){
+    LaunchedEffect(key1 = value){
         angleRatio.animateTo(
             targetValue = if(goal > 0){
                 value/goal.toFloat()
