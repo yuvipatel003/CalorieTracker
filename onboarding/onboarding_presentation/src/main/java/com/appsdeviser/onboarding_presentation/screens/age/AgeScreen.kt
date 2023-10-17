@@ -1,7 +1,6 @@
 package com.appsdeviser.onboarding_presentation.screens.age
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.BackdropScaffoldState
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Text
@@ -9,24 +8,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.appsdeviser.core.domain.model.Gender
 import com.appsdeviser.core.utils.UiEvent
 import com.appsdeviser.core_ui.LocalSpacing
 import com.appsdeviser.onboarding_presentation.R
 import com.appsdeviser.onboarding_presentation.component.ActionButton
-import com.appsdeviser.onboarding_presentation.component.SelectableButton
 import com.appsdeviser.onboarding_presentation.component.UnitTextField
-import com.appsdeviser.onboarding_presentation.screens.gender.GenderViewModel
 
 @Composable
 fun AgeScreen(
     scaffoldState: ScaffoldState,
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: AgeViewModel = hiltViewModel()
 ){
     val spacing = LocalSpacing.current
@@ -34,7 +28,7 @@ fun AgeScreen(
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 is UiEvent.ShowSnackBar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = event.message.asString(context)
