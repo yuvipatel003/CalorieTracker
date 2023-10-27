@@ -39,25 +39,25 @@ jobs:
           name: lint_report.html
           path: app/build/reports/lint-results-debug.html
 
-#   unit-test:
-#    needs: [lint]
-#    runs-on: ubuntu-latest
-#    steps:
-#           # Just Echo Message to run avoid Git Actions
-#       - name: Instrumented Test Started
-#         run: echo Instrumented Test Started
+  unit-test:
+   needs: [lint]
+   runs-on: ubuntu-latest
+   steps:
+          # Just Echo Message to run avoid Git Actions
+      - name: Unit Test Started
+        run: echo Unit Test Started
 
-#       - name: Checkout branch code
-#         uses: actions/checkout@v3
+      - name: Checkout branch code
+        uses: actions/checkout@v3
 
-#       - name: Run Tests
-#         run: ./gradlew test
+      - name: Run Tests
+        run: ./gradlew test
 
-#       - name: Upload test report
-#         uses: actions/upload-artifact@v3
-#         with:
-#          name: unit_test_report.html
-#          path: app/build/reports/tests/testDebugUnitTest/
+      - name: Upload test report
+        uses: actions/upload-artifact@v3
+        with:
+         name: unit_test_report.html
+         path: app/build/reports/tests/testDebugUnitTest/
 
 #   instrumented-test:
 #     needs: [unit-test]
@@ -112,7 +112,7 @@ jobs:
 
 
   package-debug-apk:
-    needs: [lint]
+    needs: [unit-test]
     name: Generate Debug APK
     runs-on: ubuntu-latest
     steps:
