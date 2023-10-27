@@ -14,7 +14,7 @@ sealed class MealType(val name: String) {
 
     companion object {
         fun fromString(name: String): MealType {
-            return when (name) {
+            return when (name.lowercase()) {
                 MEAL_TYPE_BREAKFAST -> Breakfast
                 MEAL_TYPE_LUNCH -> Lunch
                 MEAL_TYPE_DINNER -> Dinner

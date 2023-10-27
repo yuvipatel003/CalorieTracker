@@ -28,6 +28,10 @@ class AgeViewModel @Inject constructor(
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
+    init {
+        this.age = filterOutDigits(preferences.loadUserInfo().age.toString())
+    }
+
     fun onAgeEntered(age:String) {
         if(age.length <= 3) {
             this.age = filterOutDigits(age)
