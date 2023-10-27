@@ -15,6 +15,9 @@ import org.junit.Test
 import java.time.LocalDate
 import kotlin.random.Random
 
+/**
+ *  Unit test
+ */
 class CalculateMealNutrientsTest {
 
     private lateinit var calculateMealNutrients: CalculateMealNutrients
