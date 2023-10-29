@@ -1,4 +1,4 @@
-package com.appsdeviser.core.navigation
+package com.appsdeviser.calorietracker.navigation
 
 object Route {
     const val WELCOME = "welcome"

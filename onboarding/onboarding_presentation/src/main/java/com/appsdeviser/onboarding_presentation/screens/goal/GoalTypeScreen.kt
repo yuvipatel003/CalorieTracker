@@ -11,7 +11,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.appsdeviser.core.domain.model.ActivityLevel
 import com.appsdeviser.core.domain.model.GoalType
 import com.appsdeviser.core.utils.UiEvent
 import com.appsdeviser.core_ui.LocalSpacing
@@ -21,14 +20,14 @@ import com.appsdeviser.onboarding_presentation.component.SelectableButton
 
 @Composable
 fun GoalTypeScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: GoalTypeViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 else -> Unit
             }
         }
